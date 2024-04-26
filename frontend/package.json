@@ -17,16 +17,16 @@
     "react-scripts": "5.0.1"
   },
   "scripts": {
-    "dev": "🚀 yarn && react-scripts start",
-    "start": "▶️ react-scripts start",
-    "build": "🛠️ react-scripts build",
-    "test": "🧪 react-scripts test",
-    "test:watch": "👀 react-scripts test --watch",
-    "eject": "⏏️ react-scripts eject",
-    "serve": "🌐 http-server build -p 3000",
-    "docker-up": "🐳 docker compose up",
-    "lint": "🔍 eslint .",
-    "format": "🎨 prettier --write ."
+    "dev": "echo '🚀 Starting development server...' && yarn && react-scripts start",
+    "start": "echo '▶️ Starting production server...' && react-scripts start",
+    "build": "echo '🛠️ Building project...' && react-scripts build",
+    "test": "echo '🧪 Running tests...' && react-scripts test",
+    "test:watch": "echo '👀 Running tests in watch mode...' && react-scripts test --watch",
+    "eject": "echo '⏏️ Ejecting from create-react-app...' && react-scripts eject",
+    "serve": "echo '🌐 Serving build folder on port 3000...' && http-server build -p 3000",
+    "docker-up": "echo '🐳 Starting Docker containers...' && docker compose up",
+    "lint": "echo '🔍 Running ESLint...' && eslint .",
+    "format": "echo '🎨 Formatting code with Prettier...' && prettier --write ."
   },
   "eslintConfig": {
     "extends": "react-app"

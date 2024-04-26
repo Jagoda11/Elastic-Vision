@@ -1,13 +1,21 @@
 {
   "dependencies": {
-    "@elastic/elasticsearch": "7.13.0",
-    "dotenv": "16.0.3"
+    "@elastic/elasticsearch": "8.13.1",
+    "dotenv": "16.4.5"
   },
   "devDependencies": {
-    "nodemon": "2.0.21"
+    "eslint": "^9.1.1",
+    "eslint-config-node": "^4.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "jest": "^29.7.0",
+    "nodemon": "3.1.0",
+    "prettier": "3.2.5"
   },
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "yarn && nodemon src/index.js"
+    "start": "echo '▶️ Starting...' && node src/index.js",
+    "dev": "echo '🛠️ Building...' && yarn && nodemon src/index.js",
+    "test1": "echo '🧪 Running tests...' && jest",
+    "test": "NODE_ENV=test jest",
+    "format": "echo '✨ Formatting...' && prettier --write ."
   }
 }
