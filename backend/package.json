@@ -1,4 +1,5 @@
 {
+  "license": "MIT",
   "dependencies": {
     "@elastic/elasticsearch": "8.13.1",
     "dotenv": "16.4.5"
@@ -14,8 +15,8 @@
   "scripts": {
     "start": "echo '▶️ Starting...' && node src/index.js",
     "dev": "echo '🛠️ Building...' && yarn && nodemon src/index.js",
-    "test1": "echo '🧪 Running tests...' && jest",
-    "test": "NODE_ENV=test jest",
+    "test": "echo '🧪 Running tests...' && jest",
+    "test1": "NODE_ENV=test jest",
     "format": "echo '✨ Formatting...' && prettier --write ."
   }
 }
