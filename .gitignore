@@ -1,3 +1,27 @@
+# macOS .DS_Store files
 .DS_Store
+
+# Dependency directories
+node_modules/
+
+# Environment variables
 .env
-*.log
+
+# Build outputs
+dist/
+build/
+
+# Misc
+.DS_Store
+.next/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Docker files
+.docker/
+
+# Editor/IDE files
+.vscode/
