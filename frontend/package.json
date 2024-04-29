@@ -8,6 +8,7 @@
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.15",
     "@mui/x-charts": "^7.3.1",
+    "@mui/x-data-grid": "^7.3.1",
     "@testing-library/jest-dom": "6.4.2",
     "@testing-library/react": "15.0.5",
     "@testing-library/user-event": "14.5.2",
@@ -26,6 +27,8 @@
     "eject": "echo '⏏️ Ejecting from create-react-app...' && react-scripts eject",
     "serve": "echo '🌐 Serving build folder on port 3000...' && http-server build -p 3000",
     "docker-up": "echo '🐳 Starting Docker containers...' && docker compose up",
+    "docker-system-prune": "echo '🧹 Running Docker system prune...' && docker system prune -f",
+    "docker-image-prune": "echo '🧹 Running Docker image prune...' && docker image prune -f",
     "lint": "echo '🔍 Running ESLint...' && eslint .",
     "format": "echo '🎨 Formatting code with Prettier...' && prettier --write ."
   },
