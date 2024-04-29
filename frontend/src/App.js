@@ -36,11 +36,6 @@ export default function App() {
         prefer that. Points for creativity, both in aesthetics and in data
         analysis.
       </p>
-      <br />
-      <p>
-        Here is a simple table version of the data. How will <em>you</em> make
-        it more fun?
-      </p>
 
       <OrgTable />
     </div>
