@@ -4,28 +4,7 @@ import OrgTable from './OrgTable'
 export default function App() {
   return (
     <div style={{ maxWidth: 720, margin: '0 auto', fontFamily: 'sans-serif' }}>
-      <ul>
-        <li>
-          <code>org</code> – A collection of organizations. Accessed via{' '}
-          <a href="http://localhost:8080/orgs">http://localhost:8080/orgs</a>.
-        </li>
-        <li>
-          <code>funding</code> – A collection of{' '}
-          <a href="https://techcrunch.com/2017/01/08/wtf-is-a-funding-round/">
-            funding rounds
-          </a>
-          . Accessed via{' '}
-          <a href="http://localhost:8080/fundings">
-            http://localhost:8080/fundings
-          </a>
-          .
-        </li>
-      </ul>
-
-      <p>
-        The code for these endpoints can be found in{' '}
-        <code>backend/src/index.js</code>.
-      </p>
+      <h1>Company Data</h1>
 
       <p>
         We want you to{' '}
