@@ -22,9 +22,4 @@
     "lint": "echo '🧹 Linting...' && eslint .",
     "format": "echo '🎨 Formatting...' && prettier --write ."
   }
- 
-
-
-
-
 }
