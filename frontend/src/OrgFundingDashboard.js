@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Box, Typography } from '@mui/material'
 import OrgTable from './OrgTable'
 import FundingChart from './FundingChart'
+import FundingTable from './FundingTable'
 
 export default function OrgFundingDashboard() {
   const [isLoading, setIsLoading] = useState(true)
@@ -19,6 +20,8 @@ export default function OrgFundingDashboard() {
       fetch(urlFunding).then((res) => res.json()),
     ])
       .then(([orgData, fundingData]) => {
+        console.log('Orgs fetched:', orgData.results.hits.length)
+        console.log('Fundings fetched:', fundingData.results.hits.length)
         setOrgs(orgData.results.hits)
         setFundings(fundingData.results.hits)
       })
@@ -27,20 +30,34 @@ export default function OrgFundingDashboard() {
   }, [])
 
   const fundingChartData = fundings.map((funding) => ({
-    label: funding.company_name || 'Unknown',
-    value: parseFloat(funding.raised_amount_usd) || 0,
+    name: funding.company_name || 'Unknown',
+    value: Number(funding.raised_amount_usd) || 0,
   }))
 
-  const fundingSeries = [{ data: fundingChartData.map((item) => item.value) }]
-  const fundingXAxis = [
+  // const fundingSeries = [{ data: fundingChartData.map((item) => item.value) }]
+  /*   const fundingXAxis = [
     { data: fundingChartData.map((item) => item.label), scaleType: 'band' },
-  ]
+  ] */
 
   const generateColumns = (rows) => {
-    // Check if rows is not empty
     if (rows.length > 0) {
+      const allowedKeys = [
+        'uuid',
+        'company_name',
+        'homepage_url',
+        'country_code',
+        'city',
+        'short_description',
+        'description',
+        'funding_rounds',
+        'funding_total_usd',
+        'employee_count',
+      ]
+
       // Get the keys from the first object in rows
-      const keys = Object.keys(rows[0])
+      const keys = Object.keys(rows[0]).filter((key) =>
+        allowedKeys.includes(key),
+      )
 
       // Map the keys to an array of column objects
       const columns = keys.map((key) => ({
@@ -56,7 +73,6 @@ export default function OrgFundingDashboard() {
         ),
       )
     }
-    // If rows is empty, return an empty array
     return []
   }
 
@@ -68,16 +84,30 @@ export default function OrgFundingDashboard() {
         display: 'flex',
         flexDirection: 'column',
         p: 2,
-        height: '100vh',
-        bgcolor: 'background.default',
+        gap: 2,
+        minHeight: '100vh',
+        bgcolor: 'transparent',
+        backgroundImage: 'linear-gradient(to right, #e0f7fa, #80d8ff)',
       }}
     >
+      <Typography
+        variant="h4"
+        gutterBottom
+        sx={{
+          textShadow: '1px 1px 2px gray',
+          textAlign: 'center',
+          width: '100%',
+        }}
+      >
+        Organizational Funding Dashboard
+      </Typography>
       {isLoading ? (
         <Typography>Loading...</Typography>
       ) : (
         <>
           <OrgTable rows={orgs} columns={columns} />
-          <FundingChart series={fundingSeries} xAxis={fundingXAxis} />
+          <FundingChart series={fundingChartData} />
+          <FundingTable data={fundings} />
         </>
       )}
     </Box>
