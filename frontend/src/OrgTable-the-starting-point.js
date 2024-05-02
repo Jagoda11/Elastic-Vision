@@ -1,3 +1,4 @@
+// the starting point, before splitting up the components
 import React, { useState, useEffect } from 'react'
 import { BarChart } from '@mui/x-charts/BarChart'
 import { DataGrid } from '@mui/x-data-grid'
