@@ -42,6 +42,7 @@ const CompanySizeChart = ({ data }) => {
     plugins: {
       legend: {
         position: 'bottom',
+        display: false,
       },
     },
     scales: {

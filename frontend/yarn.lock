@@ -1830,10 +1830,10 @@
     prop-types "^15.8.1"
     react-is "^18.2.0"
 
-"@mui/x-charts@^7.3.1":
-  version "7.3.1"
-  resolved "https://registry.npmjs.org/@mui/x-charts/-/x-charts-7.3.1.tgz"
-  integrity sha512-BRoZW7xHeSeboyKgU0jQphuBotYMmgM4TkXun3JtgsDccOrfYaf24XuZzrjr22vTrRrqyv9yi+4UwAOO0oIZrw==
+"@mui/x-charts@^7.3.2":
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/@mui/x-charts/-/x-charts-7.3.2.tgz#90d711dfbb70cfbbb0e207f10e8532f3420774ed"
+  integrity sha512-620eMe83R0RDZk0S7ExYFRM2yZLlEOyIZmP5zwwVujZg54OC1fwLsk0tiaFaVZQOBKmeFOtyltDNPxr9e6itJQ==
   dependencies:
     "@babel/runtime" "^7.24.0"
     "@mui/base" "^5.0.0-beta.40"
@@ -1849,10 +1849,10 @@
     d3-shape "^3.2.0"
     prop-types "^15.8.1"
 
-"@mui/x-data-grid@^7.3.1":
-  version "7.3.1"
-  resolved "https://registry.npmjs.org/@mui/x-data-grid/-/x-data-grid-7.3.1.tgz"
-  integrity sha512-Z+KlDnk2oZ5uthP4q7koRkD7D3vZ0aiqX+51EmnzUXQljjeQ57GbLm/VHcY+XEg7vvtMsGpycLXFdwwjqINk0A==
+"@mui/x-data-grid@^7.3.2":
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/@mui/x-data-grid/-/x-data-grid-7.3.2.tgz#81a42b6242fdca5b33cdc55f619cdc4d447fc947"
+  integrity sha512-seuRiZ2yyhzeUa7Thzap0xvvizGPSEwJRNOjY9kffjUr+0iXGF3PZGEsMoJ7jCjZ2peHX7FjfqBdssDvizxIDQ==
   dependencies:
     "@babel/runtime" "^7.24.0"
     "@mui/system" "^5.15.14"
