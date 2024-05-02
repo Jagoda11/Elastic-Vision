@@ -3,7 +3,6 @@ import { Paper, Typography } from '@mui/material'
 import { Pie } from 'react-chartjs-2'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 
-// Register the required elements
 ChartJS.register(ArcElement, Tooltip, Legend)
 
 const FundingChart = ({ series }) => {
@@ -28,7 +27,6 @@ const FundingChart = ({ series }) => {
     value: item.value,
   }))
 
-  // Prepare data for Chart.js
   const chartData = {
     labels: data.map((item) => item.label),
     datasets: [
@@ -50,7 +48,7 @@ const FundingChart = ({ series }) => {
   }
 
   return (
-    <Paper sx={{ p: '1.25rem', flex: 1, width: '100%' }}>
+    <Paper sx={{ p: '1.25rem', flex: 1, height: '55vh' }}>
       <Typography variant="h6" gutterBottom>
         Fundings
       </Typography>

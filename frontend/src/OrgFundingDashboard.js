@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, Grid } from '@mui/material'
 import OrgTable from './OrgTable'
 import FundingChart from './FundingChart'
 import FundingTable from './FundingTable'
+import CompanySizeChart from './CompanySizeChart'
 
 export default function OrgFundingDashboard() {
   const [isLoading, setIsLoading] = useState(true)
@@ -99,11 +100,20 @@ export default function OrgFundingDashboard() {
       {isLoading ? (
         <Typography>Loading...</Typography>
       ) : (
-        <>
-          <OrgTable rows={orgs} columns={columns} />
-          <FundingChart series={fundingChartData} />
-          <FundingTable data={fundings} />
-        </>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6}>
+            <FundingTable data={fundings} />
+            <OrgTable rows={orgs} columns={columns} />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Box mb={1}>
+              <FundingChart series={fundingChartData} />
+            </Box>
+            <Box>
+              <CompanySizeChart data={orgs} />
+            </Box>
+          </Grid>
+        </Grid>
       )}
     </Box>
   )

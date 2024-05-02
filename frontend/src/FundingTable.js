@@ -1,6 +1,8 @@
+import React, { useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid'
-import { Typography } from '@mui/material'
+import { Typography, Button } from '@mui/material'
 import { Paper, Box } from '@mui/material'
+import CountUp from 'react-countup'
 
 const columns = [
   { field: 'company_name', headerName: 'Company Name', width: 200 },
@@ -9,12 +11,39 @@ const columns = [
   { field: 'raised_amount_usd', headerName: 'Raised Amount (USD)', width: 200 },
 ]
 const FundingTable = ({ data }) => {
+  const [showCalculations, setShowCalculations] = useState(false)
+
+  const totalFundingRounds = data.length
+
+  const totalRaised = data.reduce(
+    (sum, row) => sum + Number(row.raised_amount_usd),
+    0,
+  )
+  const averageRaised = totalRaised / totalFundingRounds
   return (
     <Paper sx={{ p: 2, mb: 2, flex: 1 }}>
       <Box sx={{ width: '100%' }}>
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" gutterBottom sx={{ textAlign: 'center' }}>
           Funding Rounds
         </Typography>
+        <Button onClick={() => setShowCalculations(!showCalculations)}>
+          {showCalculations ? 'Hide Calculations' : 'Show Calculations'}
+        </Button>
+        {showCalculations && (
+          <>
+            <Typography variant="body1" gutterBottom>
+              Total Funding Rounds:{' '}
+              <CountUp end={totalFundingRounds} duration={2.75} />
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              Total Raised (USD): <CountUp end={totalRaised} duration={2.75} />
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              Average Raised per Round (USD):{' '}
+              <CountUp end={averageRaised} duration={2.75} />
+            </Typography>
+          </>
+        )}
         <DataGrid
           rows={data}
           columns={columns}
