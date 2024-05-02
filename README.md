@@ -76,11 +76,13 @@ This repository contains a full-stack application designed to explore data from 
 
 ### Dashboard Screenshots
 
-- **Table View:** Shows data tables with interactive filters and menus.
-  ![Dashboard Table](assets/Dashboard-table.png)
+**Table View:** Shows data tables with interactive filters and menus.
 
-- **Pie Chart View:** Demonstrates how company visibility can be toggled on and off.
-  ![Funding Pie Chart](assets/Funding-pie-chart.png)
+![Dashboard Table](assets/Dashboard-table.png)
+
+**Pie Chart View:** Demonstrates how company visibility can be toggled on and off.
+
+![Funding Pie Chart](assets/Funding-pie-chart.png)
 
 ## ✅ Continuous Integration
 
