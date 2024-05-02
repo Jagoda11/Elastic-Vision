@@ -2,13 +2,13 @@ import { render, fireEvent, screen, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import FundingTable from './FundingTable'
 
-test('renders FundingTable without crashing', () => {
+test('👀renders FundingTable without crashing', () => {
   render(<FundingTable data={[]} />)
   const linkElement = screen.getByText(/Funding Rounds/i)
   expect(linkElement).toBeInTheDocument()
 })
 
-test('displays calculations on button click', async () => {
+test('🔢displays calculations on button click', async () => {
   const data = [
     {
       funding_round_uuid: '1',

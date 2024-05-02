@@ -8,7 +8,7 @@ jest.mock('react-chartjs-2', () => ({
     return <div>{data.datasets[0].backgroundColor.join(',')}</div>
   },
 }))
-test('displays the correct colors for the bars', () => {
+test('🎨displays the correct colors for the bars', () => {
   const data = [
     { employee_count: '1-10' },
     { employee_count: '11-50' },
@@ -20,7 +20,7 @@ test('displays the correct colors for the bars', () => {
   expect(colors).toBeInTheDocument()
 })
 
-test('renders CompanySizeChart without crashing', () => {
+test('🚀renders CompanySizeChart without crashing', () => {
   render(<CompanySizeChart data={[]} />)
   const linkElement = screen.getByText(/Company Size Chart/i)
   expect(linkElement).toBeInTheDocument()

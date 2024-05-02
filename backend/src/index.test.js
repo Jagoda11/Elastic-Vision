@@ -14,7 +14,7 @@ jest.mock('@elastic/elasticsearch', () => ({
 jest.mock('dotenv')
 jest.mock('path')
 
-describe('Server', () => {
+describe('🚀 Server', () => {
   let originalEnv
 
   beforeEach(() => {
@@ -26,7 +26,7 @@ describe('Server', () => {
     process.env = originalEnv
   })
 
-  it('starts the server correctly', () => {
+  it('🚀 starts the server correctly', () => {
     require('./index')
     expect(http.createServer).toHaveBeenCalled()
   })
