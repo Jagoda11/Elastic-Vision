@@ -34,11 +34,6 @@ export default function OrgFundingDashboard() {
     value: Number(funding.raised_amount_usd) || 0,
   }))
 
-  // const fundingSeries = [{ data: fundingChartData.map((item) => item.value) }]
-  /*   const fundingXAxis = [
-    { data: fundingChartData.map((item) => item.label), scaleType: 'band' },
-  ] */
-
   const generateColumns = (rows) => {
     if (rows.length > 0) {
       const allowedKeys = [
