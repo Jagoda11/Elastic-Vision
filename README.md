@@ -61,12 +61,26 @@ This repository contains a full-stack application designed to explore data from 
 - 🎨 React-based frontend using various charting libraries:
   - `@mui/x-charts` for interactive charts.
   - `react-chartjs-2` for advanced chart customization.
+- Displays two interactive tables:
+  - `OrgTable` for organizations data, with built-in filters and menus for easy data manipulation.
+  - `FundingTable` for funding data, with similar built-in features for filtering and sorting.
+- Includes two interactive charts:
+  - A pie chart (`FundingChart`) for funding data, allowing you to toggle company visibility by clicking on the legend.
+  - A pillar chart (`CompanySizeChart`) for organizations data.
 - Predefined npm scripts to streamline development.
 - Use `yarn start` to start the production server.
 - Additional scripts:
   - `yarn build` - Build the production version of the application.
   - `yarn test` - Run tests using Jest.
   - `yarn format` - Automatically format the codebase using Prettier.
+
+### Dashboard Screenshots
+
+- **Table View:** Shows data tables with interactive filters and menus.
+  ![Dashboard Table](assets/Dashboard-table.png)
+
+- **Pie Chart View:** Demonstrates how company visibility can be toggled on and off.
+  ![Funding Pie Chart](assets/Funding-pie-chart.png)
 
 ## ✅ Continuous Integration
 
