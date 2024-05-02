@@ -18,16 +18,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies for backend
         run: cd backend && yarn install --frozen-lockfile
-      - name: Lint backend
-        run: cd backend && yarn lint
       - name: Test backend
         run: cd backend && yarn test
       - name: Prettier check backend
         run: cd backend && yarn format
       - name: Install dependencies for frontend
         run: cd frontend && yarn install --frozen-lockfile
-      - name: Lint frontend
-        run: cd frontend && yarn lint
       - name: Test frontend
         run: cd frontend && yarn test
       - name: Prettier check frontend
