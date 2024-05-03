@@ -1,5 +1,5 @@
 import React from 'react'
-import OrgFundingDashboard from './OrgFundingDashboard' // Ensure the path is correct based on your project structure
+import OrgFundingDashboard from './OrgFundingDashboard'
 
 function App() {
   return (
