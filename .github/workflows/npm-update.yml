@@ -25,27 +25,24 @@ jobs:
       - name: 🗑️ Remove yarn.lock (Frontend)
         run: rm -f frontend/yarn.lock
 
-      - name: 📦 Install yarn (Frontend)
+      - name: 📦 Install yarn
         run: npm install -g yarn
-
-      - name: ⬆️ Update dependencies in package.json (Frontend)
-        run: cd frontend && yarn upgrade --ignore-engines
 
       - name: 📦 Install dependencies (Frontend)
         run: cd frontend && yarn install --ignore-engines
+
+      - name: ⬆️ Update dependencies in package.json (Frontend)
+        run: cd frontend && yarn upgrade --ignore-engines
 
       # Backend Updates
       - name: 🗑️ Remove yarn.lock (Backend)
         run: rm -f backend/yarn.lock
 
-      - name: 📦 Install yarn (Backend)
-        run: npm install -g yarn
+      - name: 📦 Install dependencies (Backend)
+        run: cd backend && yarn install --ignore-engines
 
       - name: ⬆️ Update dependencies in package.json (Backend)
         run: cd backend && yarn upgrade --ignore-engines
-
-      - name: 📦 Install dependencies (Backend)
-        run: cd backend && yarn install --ignore-engines
 
       - name: 🎭 Mask Debricked credentials
         run: echo "::add-mask::${{ secrets.DEBRICKED_TOKEN }}"
@@ -71,4 +68,3 @@ jobs:
       - name: 🚀 Push changes
         if: success()
         run: git push
-
