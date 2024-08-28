@@ -32,7 +32,7 @@ jobs:
         run: cd frontend && ncu -u
 
       - name: 📦 Install dependencies (Frontend)
-        run: cd frontend && npm install
+        run: cd frontend && npm install --legacy-peer-deps
 
       - name: 📦 Update dependencies with legacy peer deps (Frontend)
         run: cd frontend && npm update --legacy-peer-deps
@@ -48,7 +48,7 @@ jobs:
         run: cd backend && ncu -u
 
       - name: 📦 Install dependencies (Backend)
-        run: cd backend && npm install
+        run: cd backend && npm install --legacy-peer-deps
 
       - name: 📦 Update dependencies with legacy peer deps (Backend)
         run: cd backend && npm update --legacy-peer-deps
