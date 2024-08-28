@@ -100,6 +100,25 @@ The project has a CI pipeline using GitHub Actions. The workflow includes:
 3. 🎨 Running Prettier for code formatting checks.
 4. 🐳 Building and running Docker services.
 
+### Dependency Update Workflow
+
+To keep dependencies up to date and secure, the project includes a separate workflow named **npm-update.yml** that runs automatically:
+
+- **Scheduled Updates**: This workflow runs daily at 2 AM UTC to check for the latest updates of npm dependencies in both the frontend and backend projects.
+- **Manual Trigger**: You can also manually trigger the workflow if needed.
+
+- **Dependency Management**:
+  - 🗑️ Removes existing `yarn.lock` files to ensure a fresh start.
+  - ⬆️ Updates `package.json` files with the latest versions using `npm-check-updates`.
+  - 📦 Re-generates `yarn.lock` files by reinstalling dependencies with the updated versions.
+
+- **Vulnerability Scanning**: Integrates with Debricked for automated vulnerability scanning of updated dependencies.
+
+- **Automated Commit and Push**: If updates are found, the workflow commits the changes and pushes them to the main branch automatically.
+
+The workflow ensures that your project dependencies are always up to date and secure, reducing the manual overhead of managing updates.
+
+
 ## 🤝 Contribution Guidelines
 
 1. Fork the repository.
