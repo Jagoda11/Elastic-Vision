@@ -21,31 +21,29 @@ jobs:
         with:
           node-version: '20'
 
-      # Set up latest Yarn version (Yarn 2.x or above)
-      - name: 📦 Set up Yarn Berry (latest Yarn)
-        run: |
-          npm install -g yarn
-          yarn set version berry
+      # Set up Yarn
+      - name: 📦 Install Yarn
+        run: npm install -g yarn
 
       # Frontend Updates
       - name: 🗑️ Remove yarn.lock (Frontend)
         run: rm -f frontend/yarn.lock
 
+      - name: ⬆️ Update dependencies in package.json (Frontend)
+        run: cd frontend && yarn upgrade --latest
+
       - name: 📦 Install dependencies (Frontend)
         run: cd frontend && yarn install
-
-      - name: ⬆️ Update dependencies in package.json (Frontend)
-        run: cd frontend && yarn up *
 
       # Backend Updates
       - name: 🗑️ Remove yarn.lock (Backend)
         run: rm -f backend/yarn.lock
 
+      - name: ⬆️ Update dependencies in package.json (Backend)
+        run: cd backend && yarn upgrade --latest
+
       - name: 📦 Install dependencies (Backend)
         run: cd backend && yarn install
-
-      - name: ⬆️ Update dependencies in package.json (Backend)
-        run: cd backend && yarn up *
 
       - name: 🎭 Mask Debricked credentials
         run: echo "::add-mask::${{ secrets.DEBRICKED_TOKEN }}"
