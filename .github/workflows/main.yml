@@ -20,7 +20,7 @@ jobs:
 
       # Backend Steps
       - name: 📦 Install dependencies for backend
-        run: cd backend && yarn install --frozen-lockfile
+        run: cd backend && yarn install
 
       - name: 🧪 Test backend
         run: cd backend && yarn test
@@ -30,7 +30,7 @@ jobs:
 
       # Frontend Steps
       - name: 📦 Install dependencies for frontend
-        run: cd frontend && yarn install --frozen-lockfile
+        run: cd frontend && yarn install
 
       - name: 🧪 Test frontend
         run: cd frontend && yarn test
