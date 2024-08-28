@@ -32,7 +32,7 @@ jobs:
       - name: ⬆️ Update dependencies in package.json (Frontend)
         run: cd frontend && yarn upgrade --latest
 
-      - name: 📦 Install dependencies (Frontend)
+      - name: 📦 Install dependencies to generate yarn.lock (Frontend)
         run: cd frontend && yarn install
 
       # Backend Updates
@@ -42,7 +42,7 @@ jobs:
       - name: ⬆️ Update dependencies in package.json (Backend)
         run: cd backend && yarn upgrade --latest
 
-      - name: 📦 Install dependencies (Backend)
+      - name: 📦 Install dependencies to generate yarn.lock (Backend)
         run: cd backend && yarn install
 
       - name: 🎭 Mask Debricked credentials
