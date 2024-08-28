@@ -3,6 +3,7 @@
 ![Open Issues](https://img.shields.io/github/issues/Jagoda11/Motherbrain?style=flat-square&color=orange)
 ![Last Commit](https://img.shields.io/github/last-commit/Jagoda11/Motherbrain/main?style=flat-square&color=blue)
 ![Build Status](https://github.com/Jagoda11/Motherbrain/actions/workflows/main.yml/badge.svg)
+![Build Status](https://github.com/Jagoda11/Motherbrain/actions/workflows/npm-update.yml/badge.svg?branch=main)
 
 
 

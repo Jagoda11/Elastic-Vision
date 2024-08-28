@@ -1,0 +1,79 @@
+name: 🚀 Dependency Update and Vulnerability Scan
+
+on:
+  schedule:
+    - cron: '0 2 * * *' # Runs daily at 2 AM UTC
+  workflow_dispatch: # Allows manual triggering
+  push:
+    branches:
+      - main # Runs on pushes to the main branch
+
+jobs:
+  update-and-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛠️ Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🔧 Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Frontend Updates
+      - name: 🗑️ Remove package-lock.json (Frontend)
+        run: rm -f frontend/package-lock.json
+
+      - name: 📦 Install npm-check-updates (Frontend)
+        run: npm install -g npm-check-updates
+
+      - name: ⬆️ Update dependencies in package.json (Frontend)
+        run: cd frontend && ncu -u
+
+      - name: 📦 Install dependencies (Frontend)
+        run: cd frontend && npm install
+
+      - name: 📦 Update dependencies with legacy peer deps (Frontend)
+        run: cd frontend && npm update --legacy-peer-deps
+
+      # Backend Updates
+      - name: 🗑️ Remove package-lock.json (Backend)
+        run: rm -f backend/package-lock.json
+
+      - name: 📦 Install npm-check-updates (Backend)
+        run: npm install -g npm-check-updates
+
+      - name: ⬆️ Update dependencies in package.json (Backend)
+        run: cd backend && ncu -u
+
+      - name: 📦 Install dependencies (Backend)
+        run: cd backend && npm install
+
+      - name: 📦 Update dependencies with legacy peer deps (Backend)
+        run: cd backend && npm update --legacy-peer-deps
+
+      - name: 🎭 Mask Debricked credentials
+        run: echo "::add-mask::${{ secrets.DEBRICKED_TOKEN }}"
+
+      - name: Install Debricked CLI
+        run: |
+          curl -L https://github.com/debricked/cli/releases/latest/download/cli_linux_x86_64.tar.gz | tar -xz debricked
+          sudo mv debricked /usr/local/bin/debricked
+
+      - name: 🛡️ Debricked Vulnerability Scan
+        run: |
+          debricked scan -t ${{ secrets.DEBRICKED_TOKEN }} -r ${{ github.repository }} -c ${{ github.sha }}
+
+      - name: 📝 Commit changes
+        if: success()
+        run: |
+          git config --local user.name "Debugging Duck 🦆"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git status
+          git diff-index --quiet HEAD || git commit -m "⬆️ update all npm dependencies⬆️"
+
+      - name: 🚀 Push changes
+        if: success()
+        run: git push
