@@ -32,7 +32,7 @@ jobs:
         run: cd frontend && yarn install --ignore-engines
 
       - name: ⬆️ Update dependencies in package.json (Frontend)
-        run: cd frontend && yarn upgrade --ignore-engines
+        run: cd frontend && yarn up * --latest --ignore-engines
 
       # Backend Updates
       - name: 🗑️ Remove yarn.lock (Backend)
@@ -42,7 +42,7 @@ jobs:
         run: cd backend && yarn install --ignore-engines
 
       - name: ⬆️ Update dependencies in package.json (Backend)
-        run: cd backend && yarn upgrade --ignore-engines
+        run: cd backend && yarn up * --latest --ignore-engines
 
       - name: 🎭 Mask Debricked credentials
         run: echo "::add-mask::${{ secrets.DEBRICKED_TOKEN }}"
