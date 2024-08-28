@@ -56,14 +56,17 @@ jobs:
         run: |
           debricked scan -t ${{ secrets.DEBRICKED_TOKEN }} -r ${{ github.repository }} -c ${{ github.sha }}
 
-      - name: 📝 Commit changes
-        if: success()
+      - name: 📝 Commit changes if dependencies updated
         run: |
           git config --local user.name "Debugging Duck 🦆"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
+          git add frontend/yarn.lock frontend/package.json backend/yarn.lock backend/package.json
           git status
-          git diff-index --quiet HEAD || git commit -m "⬆️ update all dependencies with yarn ⬆️"
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "⬆️ update all dependencies with yarn ⬆️"
+          else
+            echo "No changes to commit."
+          fi
 
       - name: 🚀 Push changes
         if: success()
