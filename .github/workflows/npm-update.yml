@@ -22,36 +22,30 @@ jobs:
           node-version: '20'
 
       # Frontend Updates
-      - name: 🗑️ Remove package-lock.json (Frontend)
-        run: rm -f frontend/package-lock.json
+      - name: 🗑️ Remove yarn.lock (Frontend)
+        run: rm -f frontend/yarn.lock
 
-      - name: 📦 Install npm-check-updates (Frontend)
-        run: npm install -g npm-check-updates
+      - name: 📦 Install yarn (Frontend)
+        run: npm install -g yarn
 
       - name: ⬆️ Update dependencies in package.json (Frontend)
-        run: cd frontend && ncu -u
+        run: cd frontend && yarn upgrade --ignore-engines
 
       - name: 📦 Install dependencies (Frontend)
-        run: cd frontend && npm install --legacy-peer-deps
-
-      - name: 📦 Update dependencies with legacy peer deps (Frontend)
-        run: cd frontend && npm update --legacy-peer-deps
+        run: cd frontend && yarn install --ignore-engines
 
       # Backend Updates
-      - name: 🗑️ Remove package-lock.json (Backend)
-        run: rm -f backend/package-lock.json
+      - name: 🗑️ Remove yarn.lock (Backend)
+        run: rm -f backend/yarn.lock
 
-      - name: 📦 Install npm-check-updates (Backend)
-        run: npm install -g npm-check-updates
+      - name: 📦 Install yarn (Backend)
+        run: npm install -g yarn
 
       - name: ⬆️ Update dependencies in package.json (Backend)
-        run: cd backend && ncu -u
+        run: cd backend && yarn upgrade --ignore-engines
 
       - name: 📦 Install dependencies (Backend)
-        run: cd backend && npm install --legacy-peer-deps
-
-      - name: 📦 Update dependencies with legacy peer deps (Backend)
-        run: cd backend && npm update --legacy-peer-deps
+        run: cd backend && yarn install --ignore-engines
 
       - name: 🎭 Mask Debricked credentials
         run: echo "::add-mask::${{ secrets.DEBRICKED_TOKEN }}"
@@ -72,8 +66,9 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git add .
           git status
-          git diff-index --quiet HEAD || git commit -m "⬆️ update all npm dependencies⬆️"
+          git diff-index --quiet HEAD || git commit -m "⬆️ update all dependencies with yarn ⬆️"
 
       - name: 🚀 Push changes
         if: success()
         run: git push
+
