@@ -21,16 +21,19 @@ jobs:
         with:
           node-version: '20'
 
-      # Set up Yarn
       - name: 📦 Install Yarn
         run: npm install -g yarn
+
+      # Install npm-check-updates for updating package.json
+      - name: 📦 Install npm-check-updates
+        run: npm install -g npm-check-updates
 
       # Frontend Updates
       - name: 🗑️ Remove yarn.lock (Frontend)
         run: rm -f frontend/yarn.lock
 
       - name: ⬆️ Update dependencies in package.json (Frontend)
-        run: cd frontend && yarn upgrade --latest
+        run: cd frontend && ncu -u
 
       - name: 📦 Install dependencies to generate yarn.lock (Frontend)
         run: cd frontend && yarn install
@@ -40,7 +43,7 @@ jobs:
         run: rm -f backend/yarn.lock
 
       - name: ⬆️ Update dependencies in package.json (Backend)
-        run: cd backend && yarn upgrade --latest
+        run: cd backend && ncu -u
 
       - name: 📦 Install dependencies to generate yarn.lock (Backend)
         run: cd backend && yarn install
@@ -74,3 +77,4 @@ jobs:
       - name: 🚀 Push changes
         if: success()
         run: git push
+
