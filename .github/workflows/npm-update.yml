@@ -61,10 +61,16 @@ jobs:
           debricked scan -t ${{ secrets.DEBRICKED_TOKEN }} -r ${{ github.repository }} -c ${{ github.sha }}
 
       - name: 🏗️ Build project
-        run: npm run build
+        run: cd frontend && npm run build
 
       - name: ✅ Run tests
-        run: npm test
+        run: cd frontend && npm test
+
+      - name: 🏗️ Build project
+        run: cd backend && npm run build
+
+      - name: ✅ Run tests
+        run: cd backend && npm test
         
       - name: 📝 Commit changes if dependencies updated
         run: |
