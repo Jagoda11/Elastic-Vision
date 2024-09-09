@@ -66,9 +66,6 @@ jobs:
       - name: ✅ Run tests
         run: cd frontend && npm test
 
-      - name: 🏗️ Build project
-        run: cd backend && npm run build
-
       - name: ✅ Run tests
         run: cd backend && npm test
         
