@@ -1,11 +1,11 @@
 {
   "license": "MIT",
   "dependencies": {
-    "@elastic/elasticsearch": "8.15.0",
+    "@elastic/elasticsearch": "8.15.1",
     "dotenv": "16.4.5"
   },
   "devDependencies": {
-    "eslint": "^9.12.0",
+    "eslint": "^9.13.0",
     "eslint-config-node":"^4.1.0",
     "eslint-plugin-node": "^11.1.0",
     "nodemon": "3.1.7",
