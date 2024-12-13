@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "dependencies": {
-    "@elastic/elasticsearch": "8.16.2",
+    "@elastic/elasticsearch": "8.17.0",
     "dotenv": "16.4.7"
   },
   "devDependencies": {
