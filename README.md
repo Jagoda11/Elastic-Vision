@@ -1,4 +1,4 @@
-# 🚀 Motherbrain Full Stack Challenge
+# 🚀 Elastisearch Full Stack Challenge
 
 ![Open Issues](https://img.shields.io/github/issues/Jagoda11/Elastic-Vision?style=flat-square&color=orange)
 ![Last Commit](https://img.shields.io/github/last-commit/Jagoda11/Elastic-Vision/main?style=flat-square&color=blue)
