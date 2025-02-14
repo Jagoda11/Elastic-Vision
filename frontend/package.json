@@ -6,12 +6,12 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@mui/material": "^6.3.0",
-    "@mui/x-charts": "^7.23.2",
-    "@mui/x-data-grid": "^7.23.5",
+    "@mui/material": "^6.4.4",
+    "@mui/x-charts": "^7.26.0",
+    "@mui/x-data-grid": "^7.26.0",
     "@testing-library/jest-dom": "6.6.3",
-    "@testing-library/react": "16.1.0",
-    "@testing-library/user-event": "14.5.2",
+    "@testing-library/react": "16.2.0",
+    "@testing-library/user-event": "14.6.1",
     "@testing-library/dom": "^10.4.0",
     "chart.js": "^4.4.7",
     "http-server": "14.1.1",
@@ -51,6 +51,6 @@
     ]
   },
   "devDependencies": {
-    "prettier": "3.4.2"
+    "prettier": "3.5.1"
   }
 }
