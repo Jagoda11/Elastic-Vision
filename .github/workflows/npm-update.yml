@@ -19,7 +19,7 @@ jobs:
           node-version: '20'
 
       - name: 📦 Install Yarn
-        run: npm install -g yarn
+        run: npm install -g yarn install --ignore-peer-errors
 
       # Install npm-check-updates for updating package.json
       - name: 📦 Install npm-check-updates
@@ -33,7 +33,7 @@ jobs:
         run: cd frontend && ncu -u
 
       - name: 📦 Install dependencies to generate yarn.lock (Frontend)
-        run: cd frontend && yarn install
+        run: cd frontend && yarn install --ignore-peer-errors
 
       # Backend Updates
       - name: 🗑️ Remove yarn.lock (Backend)
@@ -43,7 +43,7 @@ jobs:
         run: cd backend && ncu -u
 
       - name: 📦 Install dependencies to generate yarn.lock (Backend)
-        run: cd backend && yarn install
+        run: cd backend && yarn install --ignore-peer-errors
 
       - name: 🎭 Mask Debricked credentials
         run: echo "::add-mask::${{ secrets.DEBRICKED_TOKEN }}"
